@@ -110,6 +110,8 @@ alias neofetch="clear && neofetch"
 
 alias gs="git branch --sort=-committerdate | fzf --header \"Checkout Recent Branch\" --preview \"git diff {1} --color=always | delta\" --pointer=\"\" | xargs git checkout"
 
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
 source ~/.myobrc
 
 export NVM_DIR="$HOME/.nvm"
