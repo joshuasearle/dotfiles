@@ -123,5 +123,8 @@ export FZF_DEFAULT_OPTS="--extended --bind ctrl-f:preview-up,ctrl-b:preview-down
 export FZF_DEFAULT_COMMAND="fd --type f"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+# dotnet-cli-tools
+export PATH=$PATH:~/.dotnet/tools
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
