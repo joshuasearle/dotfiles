@@ -140,8 +140,19 @@ return {
       {
         "<leader>td",
         function()
-          require("neotest").run.run({ strategy = "dap" })
+          -- netcoredbg needs special strategy
+          if vim.bo.filetype == "cs" then
+            require("neotest").run.run({
+              strategy = require("neotest-dotnet.strategies.netcoredbg"),
+              is_custom_dotnet_debug = true,
+            })
+          else -- for all others, use regular dap strategy
+            require("neotest").run.run({ strategy = "dap" })
+          end
         end,
+        -- function()
+        --   require("neotest").run.run({ strategy = "dap" })
+        -- end,
         desc = "Run test in debug mode",
       },
       {
@@ -164,8 +175,7 @@ return {
         adapters = {
           require("neotest-dotnet")({
             dap = { justMyCode = false },
-            discovery_root = "project",
-          })
+          }),
         },
         icons = {
           passed = " ",
@@ -178,6 +188,51 @@ return {
         },
         output = {
           open_on_run = false,
+        },
+      }
+    end,
+  },
+
+  {
+    "mfussenegger/nvim-dap",
+    event = "BufReadPre",
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+    },
+    keys = {
+      { "<leader>db", "<cmd>DapToggleBreakpoint<CR>", desc = "Toggle breakpoint" },
+      { "<leader>dc", "<cmd>DapContinue<CR>", desc = "Continue to next breakpoint" },
+      { "<leader>di", "<cmd>DapStepInto<CR>", desc = "Step into" },
+      { "<leader>do", "<cmd>DapStepOver<CR>", desc = "Step over" },
+      { "<leader>dO", "<cmd>DapStepOut<CR>", desc = "Step out" },
+      { "<leader>dx", "<cmd>DapTerminate<CR>", desc = "Stop debugging" },
+      {
+        "<leader>du",
+        function()
+          require("dapui").toggle()
+        end,
+        desc = "Stop debugging",
+      },
+    },
+    config = function()
+      require("dapui").setup()
+
+      local dap = require("dap")
+
+      dap.adapters.netcoredbg = {
+        type = "executable",
+        command = "/usr/local/netcoredbg",
+        args = { "--interpreter=vscode" },
+      }
+
+      dap.configurations.cs = {
+        {
+          type = "netcoredbg",
+          name = "Launch - netcoredbg",
+          request = "launch",
+          program = function()
+            return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/", "file")
+          end,
         },
       }
     end,
