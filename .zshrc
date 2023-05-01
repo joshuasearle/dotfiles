@@ -126,5 +126,8 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # dotnet-cli-tools
 export PATH=$PATH:~/.dotnet/tools
 
+# Add ~/bin to PATH
+export PATH=$PATH:$HOME/bin
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
