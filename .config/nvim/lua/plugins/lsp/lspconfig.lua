@@ -111,7 +111,9 @@ M.capabilities.textDocument.completion.completionItem = {
   },
 }
 
-require("lspconfig").lua_ls.setup {
+local lspconfig = require("lspconfig")
+
+lspconfig.lua_ls.setup {
   on_attach = M.on_attach,
   capabilities = M.capabilities,
 
@@ -134,8 +136,28 @@ require("lspconfig").lua_ls.setup {
   },
 }
 
-require("lspconfig").csharp_ls.setup({
+lspconfig.csharp_ls.setup({
   on_attach = M.on_attach,
+  capabilities = M.capabilities,
+})
+
+lspconfig.bashls.setup({
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+})
+
+lspconfig.pyright.setup({
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+})
+
+lspconfig.tsserver.setup({
+  on_attach = function()
+    require("typescript").setup({})
+    M.on_attach()
+    vim.keymap.set("n", "<leader>co", "<cmd>TypescriptOrganizeImports<CR>", { desc = "Organize Imports" })
+    vim.keymap.set("n", "<leader>cR", "<cmd>TypescriptRenameFile<CR>", { desc = "Rename File" })
+  end,
   capabilities = M.capabilities,
 })
 

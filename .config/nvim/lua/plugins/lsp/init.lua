@@ -1,7 +1,10 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    dependencies = { "williamboman/mason.nvim" },
+    dependencies = {
+      "williamboman/mason.nvim",
+      "jose-elias-alvarez/typescript.nvim",
+    },
     config = function()
       require("plugins.lsp.lspconfig")
     end,
@@ -21,6 +24,7 @@ return {
           nls.builtins.formatting.csharpier,
           nls.builtins.formatting.shfmt,
           nls.builtins.formatting.prettierd,
+          nls.builtins.formatting.black,
         },
       }
     end,
