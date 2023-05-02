@@ -9,7 +9,6 @@ local function diagnostic_goto(next, severity)
 end
 
 local format = function()
-  print("!!!#!#!#!#!#!#!#!!#")
   local buf = vim.api.nvim_get_current_buf()
   if vim.b.autoformat == false then
     return
@@ -158,6 +157,11 @@ lspconfig.tsserver.setup({
     vim.keymap.set("n", "<leader>co", "<cmd>TypescriptOrganizeImports<CR>", { desc = "Organize Imports" })
     vim.keymap.set("n", "<leader>cR", "<cmd>TypescriptRenameFile<CR>", { desc = "Rename File" })
   end,
+  capabilities = M.capabilities,
+})
+
+lspconfig.hls.setup({
+  on_attach = M.on_attach,
   capabilities = M.capabilities,
 })
 
