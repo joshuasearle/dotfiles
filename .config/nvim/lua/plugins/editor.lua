@@ -227,7 +227,18 @@ return {
       vim.o.timeout = true
       vim.o.timeoutlen = 300
 
-      require("which-key").setup()
+      local wk = require("which-key")
+
+      wk.setup()
+
+      wk.register({
+        c = { name = "Code" },
+        b = { name = "Buffers" },
+        f = { name = "Find" },
+        d = { name = "Debug" },
+        t = { name = "Test" },
+        g = { name = "Git" },
+      }, { prefix = "<leader>" })
     end,
   }
 }
