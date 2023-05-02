@@ -40,3 +40,7 @@ map("v", "c", "<Nop>", { silent = true, noremap = true })
 -- Better visual mode indenting
 map("v", "<", "<gv", { silent = true })
 map("v", ">", ">gv", { silent = true })
+
+-- Visual mode line moving that handles EOF
+map("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
+map("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
