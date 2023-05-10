@@ -247,4 +247,14 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     config = function() vim.fn["mkdp#util#install"]() end,
   },
+
+  {
+    "Pocco81/auto-save.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {
+      execution_message = {
+        message = function() return "" end,
+      },
+    }
+  },
 }
