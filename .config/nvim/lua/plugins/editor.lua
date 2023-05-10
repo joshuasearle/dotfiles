@@ -22,6 +22,11 @@ return {
         auto_expand_width = true,
         width = 25,
       },
+      default_component_configs = {
+        modified = {
+          symbol = "",
+        },
+      },
     },
   },
 
