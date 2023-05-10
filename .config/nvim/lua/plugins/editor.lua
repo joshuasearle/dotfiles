@@ -240,5 +240,11 @@ return {
         g = { name = "Git" },
       }, { prefix = "<leader>" })
     end,
-  }
+  },
+
+  {
+    "imacco/markdown-preview.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function() vim.fn["mkdp#util#install"]() end,
+  },
 }
