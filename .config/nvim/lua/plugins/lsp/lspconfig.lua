@@ -165,5 +165,17 @@ lspconfig.hls.setup({
   capabilities = M.capabilities,
 })
 
+lspconfig.yamlls.setup({
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+  settings = {
+    yaml = {
+      schemas = {
+        ["/Users/Josh.Searle/schema.json"] = "*.spending.yaml",
+      },
+    },
+  },
+})
+
 return M
 
