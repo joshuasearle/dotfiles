@@ -26,6 +26,7 @@ return {
           nls.builtins.formatting.shfmt,
           nls.builtins.formatting.prettierd,
           nls.builtins.formatting.black,
+          nls.builtins.formatting.markdownlint,
         },
       }
     end,
