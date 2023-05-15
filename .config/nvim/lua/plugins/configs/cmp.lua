@@ -1,7 +1,6 @@
 M = {}
 
-M.opts = 
-function()
+M.opts = function()
   local cmp = require("cmp")
 
   return {
