@@ -106,6 +106,11 @@ alias vi="nvim"
 alias v="nvim"
 alias vscode="nvim"
 
+alias k9s="k9s --readonly"
+alias k9sw="k9s"
+
+alias kc="kubectl config current-context"
+
 alias neofetch="clear && neofetch"
 
 alias gs="git branch --sort=-committerdate | fzf --header \"Checkout Recent Branch\" --preview \"git diff {1} --color=always | delta\" --pointer=\"\" | xargs git checkout"
