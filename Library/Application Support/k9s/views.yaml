@@ -1,0 +1,28 @@
+views:
+  v1/pods:
+    sortColumn: AGE:asc
+    columns:
+      - AGE
+      - NAMESPACE
+      - NAME
+      - STATUS
+      - READY
+      - RESTARTS
+  v1/nodes:
+    sortColumn: AGE:asc
+    columns:
+      - AGE
+      - NAME
+      - STATUS
+      - PODS
+      - TAINTS
+  karpenter.sh/v1beta1/nodeclaims:
+    sortColumn: AGE:asc
+    columns:
+      - AGE
+      - READY
+      - CAPACITY
+      - TYPE
+      - ZONE
+      - NAME
+      - NODE
