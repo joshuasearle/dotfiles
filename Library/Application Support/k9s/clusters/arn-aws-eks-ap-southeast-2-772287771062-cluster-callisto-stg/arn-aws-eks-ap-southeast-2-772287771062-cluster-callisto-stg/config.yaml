@@ -1,0 +1,14 @@
+k9s:
+  cluster: arn:aws:eks:ap-southeast-2:772287771062:cluster/callisto-stg
+  namespace:
+    active: all
+    lockFavorites: false
+    favorites:
+    - workspace-1-shadow
+    - all
+    - default
+  view:
+    active: "no"
+  featureGates:
+    nodeShell: false
+  portForwardAddress: localhost

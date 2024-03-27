@@ -1,0 +1,13 @@
+k9s:
+  cluster: europa-stg.jupiter.myobdev.com
+  namespace:
+    active: all
+    lockFavorites: false
+    favorites:
+    - all
+    - default
+  view:
+    active: ns
+  featureGates:
+    nodeShell: false
+  portForwardAddress: localhost

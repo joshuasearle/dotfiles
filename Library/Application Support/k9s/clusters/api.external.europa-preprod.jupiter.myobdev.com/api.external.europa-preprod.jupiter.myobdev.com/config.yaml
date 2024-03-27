@@ -1,0 +1,22 @@
+k9s:
+  cluster: api.external.europa-preprod.jupiter.myobdev.com
+  namespace:
+    active: access-management
+    lockFavorites: false
+    favorites:
+    - access-management
+    - invoice-financing
+    - payroll
+    - sme-shadow
+    - kube-monitor
+    - propelventures-shadow
+    - all
+    - arl
+    - fma
+    - kube-karpenter
+    - practice-corp-admin-shadow
+  view:
+    active: hpa
+  featureGates:
+    nodeShell: false
+  portForwardAddress: localhost

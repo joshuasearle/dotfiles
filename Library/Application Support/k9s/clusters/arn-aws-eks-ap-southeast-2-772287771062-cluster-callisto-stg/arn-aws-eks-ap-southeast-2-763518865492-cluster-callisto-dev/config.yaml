@@ -1,0 +1,15 @@
+k9s:
+  cluster: arn:aws:eks:ap-southeast-2:772287771062:cluster/callisto-stg
+  namespace:
+    active: platform-enablement
+    lockFavorites: false
+    favorites:
+    - platform-enablement
+    - kube-system
+    - platform-enablement-shadow
+    - all
+  view:
+    active: ns
+  featureGates:
+    nodeShell: false
+  portForwardAddress: localhost

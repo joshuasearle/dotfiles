@@ -1,0 +1,14 @@
+k9s:
+  cluster: europa.jupiter.myob.com
+  namespace:
+    active: all
+    lockFavorites: false
+    favorites:
+    - all
+    - default
+    - platform-reliability
+  view:
+    active: node
+  featureGates:
+    nodeShell: false
+  portForwardAddress: localhost

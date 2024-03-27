@@ -1,0 +1,12 @@
+k9s:
+  cluster: api.external.europa-preprod.jupiter.myobdev.com
+  namespace:
+    active: default
+    lockFavorites: false
+    favorites:
+    - default
+  view:
+    active: "no"
+  featureGates:
+    nodeShell: false
+  portForwardAddress: localhost
