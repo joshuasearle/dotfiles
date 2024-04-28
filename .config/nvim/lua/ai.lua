@@ -1,6 +1,4 @@
-M = {}
-
-M.keys = {
+local keys = {
   {
     "<C-CR>",
     function()
@@ -43,9 +41,21 @@ M.keys = {
   },
 }
 
-M.opts = {
+local opts = {
   suggestion = { enabled = true, auto_trigger = true },
   panel = { enabled = false },
 }
+
+local M = {}
+
+function M.setup()
+  require("plugins").add_plugin({
+    "zbirenbaum/copilot.lua",
+    event = { "BufReadPre", "BufNewFile" },
+    build = ":Copilot auth",
+    keys = keys,
+    opts = opts,
+  })
+end
 
 return M
