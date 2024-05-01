@@ -1,0 +1,11 @@
+[user]
+	email = joshryansearle@gmail.com
+	name = Josh Searle
+	signingkey = B1699E6F
+
+[commit]
+	gpgsign = true
+
+[tag]
+	gpgsign = true
+
