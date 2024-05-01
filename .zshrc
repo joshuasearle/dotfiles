@@ -74,6 +74,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search history z vi-mode)
+# plugins=(git web-search z vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,18 +107,15 @@ alias vi="nvim"
 alias v="nvim"
 alias vscode="nvim"
 
-alias k9s="k9s --readonly"
-alias k9sw="k9s"
-
-alias kc="kubectl config current-context"
-
 alias neofetch="clear && neofetch"
 
 alias gs="git branch --sort=-committerdate | fzf --header \"Checkout Recent Branch\" --preview \"git diff {1} --color=always | delta\" --pointer=\"\" | xargs git checkout"
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-source ~/.myobrc
+alias dcr="docker compose run --rm"
+
+source ~/.myobrc3
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -134,9 +132,16 @@ export PATH=$PATH:~/.dotnet/tools
 # Add ~/bin to PATH
 export PATH=$PATH:$HOME/bin
 
+# Add GOPATH to PATH
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
 source <(kubectl completion zsh)
 compdef kubecolor=kubectl
 
+# Get GPG signing working
+export GPG_TTY=$(tty)
+gpgconf --launch gpg-agent
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
